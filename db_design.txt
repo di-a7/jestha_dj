@@ -1,0 +1,6 @@
+# Todolist - Frontend ,CRUD operation,
+
+title  - Strings(Character fields)
+description - Strings
+status - Boolean datatype
+Datetime - Datatime (int)
