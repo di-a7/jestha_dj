@@ -10,8 +10,45 @@ def aboutus(request):
 # aboutus, contact
 
 def index(request):
+   people = [
+    {
+        "name": "Ram Bahadur",
+        "age": 28,
+        "gender": "Male",
+    },
+    {
+        "name": "Sita Sharma",
+        "age": 50,
+        "gender": "Female",
+    },
+    {
+        "name": "Hari Prasad",
+        "age": 2,
+        "gender": "Male",
+    },
+    {
+        "name": "Gita Koirala",
+        "age": 30,
+        "gender": "Female",
+    },
+    {
+        "name": "Gita Koirala",
+        "age": 50,
+        "gender": "Female",
+    },
+    {
+        "name": "Gita Koirala",
+        "age": 10,
+        "gender": "Female",
+    }
+]
+
    context = {
       "header":"Index Page",
-      "para":"This is a index page."
+      "para":"This is a index page.",
+      "people": people
    }
    return render(request, 'index.html', context)
+
+def contact(request):
+   return render(request,'contact.html')

@@ -1,12 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Index</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Index{% endblock title %}
+
+{% block body %}
    <h1>{{header}}</h1>
    <p>{{para}}</p>
-</body>
-</html>
+
+   <table class="table">
+   <thead>
+      <tr>
+         <th scope="col">id</th>
+         <th scope="col">Name</th>
+         <th scope="col">Age</th>
+         <th scope="col">Gender</th>
+      </tr>
+   </thead>
+   <tbody>
+      {% for person in people %}
+      <tr>
+         <th scope="row">{{forloop.counter}}</th>
+         <td>{{person.name}}</td>
+         <td>
+            {% if person.age > 50 %}
+            Old
+            {% elif person.age > 18 %}
+            Adult
+            {% else %}
+            Child
+            {% endif %}
+            {{person.age}}
+         </td>
+         <td>{{person.gender}}</td>
+      </tr>
+      {% endfor %}
+
+   </tbody>
+   </table>
+{% endblock body %}
