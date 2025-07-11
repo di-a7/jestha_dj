@@ -5,5 +5,9 @@ urlpatterns = [
    path('home/',home),
    path('aboutus/',aboutus),
    path('index/',index),
-   path('contact/',contact)
+   path('contact/',contact),
+   path('todolist/',todolist),
 ]
+
+def add():
+   pass
