@@ -7,7 +7,7 @@ urlpatterns = [
    path('index/',index),
    path('contact/',contact),
    path('todolist/',todolist),
+   path('todolist/create/',task_create)
 ]
 
-def add():
-   pass
+
