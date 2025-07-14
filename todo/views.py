@@ -3,15 +3,15 @@ from django.http import HttpResponse
 from .models import Todolist
 # Create your views here.
 def home(request):
-   return HttpResponse("Hello")
+    return HttpResponse("Hello")
 
 def aboutus(request):
-   return HttpResponse("This is aboutus page.")
+    return HttpResponse("This is aboutus page.")
 
 # aboutus, contact
 
 def index(request):
-   people = [
+    people = [
     {
         "name": "Ram Bahadur",
         "age": 28,
@@ -44,15 +44,15 @@ def index(request):
     }
 ]
 
-   context = {
-      "header":"Index Page",
-      "para":"This is a index page.",
-      "people": people
-   }
-   return render(request, 'index.html', context)
+    context = {
+        "header":"Index Page",
+        "para":"This is a index page.",
+        "people": people
+    }
+    return render(request, 'index.html', context)
 
 def contact(request):
-   return render(request,'contact.html')
+    return render(request,'contact.html')
 
 
 def todolist(request):
@@ -77,3 +77,24 @@ def task_create(request):
             Todolist.objects.create(title = title_input, description = description_input)
             return redirect('/todolist/')
     return render(request, 'create.html')
+
+def mark_complete(request, id):
+    task = Todolist.objects.get(id = id)
+    task.status = True
+    task.save()
+    return redirect('/todolist/')
+
+def edit(request, id):
+    task = Todolist.objects.get(id = id)
+    context = {
+        "tasks" : task
+    }
+    if request.method == "POST":
+        title_update = request.POST.get('title')
+        description_update = request.POST.get('description')
+        
+        task.title = title_update
+        task.description = description_update
+        task.save()
+        return redirect('/todolist/')
+    return render(request,'edit.html', context)

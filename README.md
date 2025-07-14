@@ -50,5 +50,3 @@ a.delete()
 
 # filter data
 model_name.objects.filter(field1 = "value", field2="value",....)
-
-# .gitignore file, git and github

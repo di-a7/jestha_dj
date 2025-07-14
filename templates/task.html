@@ -12,15 +12,31 @@
             <th scope="col">Title</th>
             <th scope="col">Description</th>
             <th scope="col">Status</th>
+            <th scope="col">Action</th>
          </tr>
       </thead>
       <tbody>
          {% for task in tasks %}
          <tr>
-            <th scope="row">{{forloop.counter}}</th>
+            <th scope="row">{{task.id}}</th>
             <td>{{task.title}}</td>
             <td>{{task.description}}</td>
-            <td>{{task.status}}</td>
+            <td>
+               {% if task.status %}
+               <span class = "text-success">
+               Completed
+               </span>
+               {% else %}
+               <span class = "text-danger">
+               Pending
+               </span>
+
+               {% endif %}
+            </td>
+            <td>
+               <a href="{{task.id}}" class="btn btn-success">Mark</a>
+               <a href="{{task.id}}" class="btn btn-success">Edit</a>
+            </td>
          </tr>
          {% endfor %}
 

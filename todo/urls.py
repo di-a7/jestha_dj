@@ -7,7 +7,9 @@ urlpatterns = [
    path('index/',index),
    path('contact/',contact),
    path('todolist/',todolist),
-   path('todolist/create/',task_create)
+   path('todolist/create/',task_create),
+   path('todolist/<id>/', mark_complete),
+   path('todolist/<id>/edit/', edit),
 ]
 
 
