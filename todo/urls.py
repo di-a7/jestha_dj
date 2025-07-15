@@ -10,6 +10,5 @@ urlpatterns = [
    path('todolist/create/',task_create),
    path('todolist/<id>/', mark_complete),
    path('todolist/<id>/edit/', edit),
+   path('todolist/<id>/delete/', delete),
 ]
-
-

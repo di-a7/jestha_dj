@@ -98,3 +98,8 @@ def edit(request, id):
         task.save()
         return redirect('/todolist/')
     return render(request,'edit.html', context)
+
+def delete(request, id):
+    task = Todolist.objects.get(id = id)
+    task.delete()
+    return redirect('/todolist/')
